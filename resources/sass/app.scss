@@ -1,0 +1,71 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background: url('images/background.jpg') no-repeat fixed;
+    background-size: 100%;
+}
+
+.back {
+    background-color: blueviolet;
+}
+
+.brand {
+    width: 80%;
+}
+
+.mtext {
+    font-size: 1.1rem;
+}
+
+.fio {
+    font-size: 1.4rem;
+    color: yellow;
+    font-weight: 500;
+}
+
+.titles {
+    font-size: 1.5rem;
+    color: #63f051;
+    font-weight: bold;
+}
+
+.error {
+    font-size: 1.5rem;
+    color: red;
+    font-weight: bold;
+}
+
+.text {
+    font-size: 1.1rem;
+    color: #e7e6e6;
+}
+
+.roles {
+    font-size: 1.3rem;
+    color: #e6661c;
+    font-style: italic;
+}
+
+.link {
+    color: #e7e6e6;
+}
+
+.link:hover {
+    color: #e7e6e6;
+    text-decoration: none;
+}
+
+.link:active {
+    color: #e7e6e6;
+}
+
+.link:visited {
+    color: #e7e6e6;
+}

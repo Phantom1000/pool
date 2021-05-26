@@ -8,7 +8,7 @@
     </span>
     @enderror
     по <input type="date" class="form-control form-control-sm mx-2 mr-sm-2 @error('enddate') is-invalid @enderror"
-        id="enddate" value="{{ old('enddate', $schedule->enddate->format('Y-m-d') ?? '') }}" name="enddate" required>
+        id="enddate" value="{{ old('enddate', (isset($schedule) ? $schedule->enddate->format('Y-m-d') : '')) }}" name="enddate" required>
     @error('enddate')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
@@ -20,14 +20,14 @@
 <div class="form-inline mb-3">
     Время работы бассейна с <input type="time"
         class="form-control form-control-sm mx-2 mr-sm-2 @error('starttime') is-invalid @enderror" id="startdate"
-        value="{{ old('starttime', $schedule->starttime->format('H:i') ?? '') }}" name="starttime" required>
+        value="{{ old('starttime', (isset($schedule) ? $schedule->starttime->format('H:i') : '')) }}" name="starttime" required>
     @error('starttime')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
     </span>
     @enderror
     до <input type="time" class="form-control form-control-sm mx-2 mr-sm-2 @error('endtime') is-invalid @enderror"
-        id="endtime" value="{{ old('endtime', $schedule->endtime->format('H:i') ?? '') }}" name="endtime" required>
+        id="endtime" value="{{ old('endtime', (isset($schedule) ? $schedule->endtime->format('H:i') : '')) }}" name="endtime" required>
     @error('endtime')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
 <div class="form-inline mb-3">
     Количество пар: <input type="number"
         class="form-control form-control-sm mx-2 mr-sm-2 @error('couples') is-invalid @enderror" id="couples"
-        value="{{ old('couples', $schedule->couples->count() ?? '1')}}" name="couples" required min="1">
+        value="{{ old('couples', (isset($schedule) ? $schedule->couples->count() : '1')) }}" name="couples" required min="1">
     @error('couples')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
@@ -51,7 +51,7 @@
         name="hall_id">
         <option disabled>Выберите</option>
         @foreach ($halls as $hall)
-        <option value="{{ $hall->id ?? '' }}" @if ($hall->id === $schedule->hall_id) selected @endif>{{ $hall->name }}
+        <option value="{{ $hall->id ?? '' }}" @if (isset($schedule) && $hall->id === $schedule->hall_id) selected @endif>{{ $hall->name }}
         </option>
         @endforeach
     </select>

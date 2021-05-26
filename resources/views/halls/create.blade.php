@@ -4,14 +4,13 @@
 <div class="container text">
     <div class="row justify-content-between">
         <div class="col-sm-5 titles">
-            Редактирование раписания
+            Добавление зала
         </div>
     </div>
-    <form action="{{ route('schedules.update', $schedule) }}" method="POST" class="mt-3">
+    <form action="{{ route('halls.store') }}" method="POST" class="mt-3">
         @csrf
-        @method('PUT')
 
-        @include('schedules.form')
+        @include('halls.form')
     </form>
 </div>
 @endsection

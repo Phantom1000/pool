@@ -203,7 +203,7 @@
                             <span v-if="entry.state === 0">Забронировано</span>
                             <span v-else-if="entry.state === 1">Оплачено</span>
                             <span v-else-if="entry.state === 2"
-                                >Посещается</span
+                                >Посещено</span
                             >
                             <span v-else>Ошибка</span>
                         </td>

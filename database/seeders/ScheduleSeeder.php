@@ -17,15 +17,15 @@ class ScheduleSeeder extends Seeder
     {
         $schedules = [
             [
-                'startdate' => '2020-12-20',
-                'enddate' => '2020-12-30',
+                'startdate' => '2021-05-10',
+                'enddate' => '2021-05-20',
                 'starttime' => '08:00:00',
                 'endtime' => '20:00:00',
                 'active' => true
             ],
             [
-                'startdate' => '2020-12-15',
-                'enddate' => '2020-12-22',
+                'startdate' => '2021-05-15',
+                'enddate' => '2021-05-25',
                 'starttime' => '10:00:00',
                 'endtime' => '21:00:00',
                 'active' => true

@@ -49,8 +49,8 @@ class ScheduleController extends Controller
     public function create()
     {
         Gate::authorize('access', 'admin');
-
-        return view('schedules.create');
+        $halls = Hall::all();
+        return view('schedules.create', compact('halls'));
     }
 
     /**
@@ -63,9 +63,14 @@ class ScheduleController extends Controller
     {
         Gate::authorize('access', 'admin');
 
-        $schedule = Schedule::create($request->only('startdate', 'enddate', 'starttime', 'endtime'));
+        $active = $request->active === 'on';
+        $schedule = Schedule::create($request->only('startdate', 'enddate', 'starttime', 'endtime', 'hall_id') + ['active' => $active]);
         $this->coupleService->addCouples($schedule, $request->starttime, $request->endtime, $request->couples);
-
+        if ($active) {
+            Schedule::where('hall_id', $request->hall_id)->update([
+                'active' => false
+            ]);
+        }
         return redirect()->route('schedules.index');
     }
 

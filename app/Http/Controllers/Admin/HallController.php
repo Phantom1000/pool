@@ -26,7 +26,7 @@ class HallController extends Controller
      */
     public function create()
     {
-        //
+        return view('halls.create');
     }
 
     /**
@@ -37,18 +37,8 @@ class HallController extends Controller
      */
     public function store(HallRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Hall  $hall
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Hall $hall)
-    {
-        //
+        Hall::create($request->validated());
+        return redirect()->route('halls.index');
     }
 
     /**
@@ -83,6 +73,7 @@ class HallController extends Controller
      */
     public function destroy(Hall $hall)
     {
-        //
+        $hall->delete();
+        return redirect()->route('halls.index');
     }
 }

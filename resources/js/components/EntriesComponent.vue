@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="container">
         <div class="row">
             <div class="col-sm-2 titles">{{ title }}</div>
@@ -149,8 +150,10 @@
                 </div>
             </div>
         </div>
-        <div class="row" v-if="user">
-            <table class="table table-striped table-dark table-bordered mt-3">
+    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center" v-if="user">
+            <table class="table table-striped table-dark table-bordered mt-3 col-sm-9">
                 <thead>
                     <tr v-if="!loading">
                         <td colspan="9">
@@ -247,6 +250,7 @@
             </table>
         </div>
     </div>
+</div>
 </template>
 
 <script>

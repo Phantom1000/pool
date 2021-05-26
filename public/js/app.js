@@ -2334,6 +2334,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["user", "csrf_token", "roles"],
   data: function data() {
@@ -44453,660 +44457,694 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-2 titles" }, [
-        _vm._v(_vm._s(_vm.title))
-      ]),
-      _vm._v(" "),
-      _vm.user
-        ? _c("div", { staticClass: "col-sm-10 d-flex" }, [
-            _c("div", { staticClass: "col-sm-2" }, [
-              _c(
-                "form",
-                {
-                  staticClass: "form-inline my-2 my-lg-0",
-                  attrs: { method: "GET" },
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.loadEntries($event)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "label",
-                    { staticClass: "text mr-2", attrs: { for: "hall_id" } },
-                    [_vm._v("Зал:")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.hall.id,
-                          expression: "hall.id"
-                        }
-                      ],
-                      staticClass: "form-control form-control",
-                      attrs: { id: "hall_id" },
-                      on: {
-                        change: [
-                          function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.hall,
-                              "id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                          _vm.loadEntries
-                        ]
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-2 titles" }, [
+          _vm._v(_vm._s(_vm.title))
+        ]),
+        _vm._v(" "),
+        _vm.user
+          ? _c("div", { staticClass: "col-sm-10 d-flex" }, [
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "form",
+                  {
+                    staticClass: "form-inline my-2 my-lg-0",
+                    attrs: { method: "GET" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.loadEntries($event)
                       }
-                    },
-                    [
-                      _c("option", { attrs: { disabled: "", value: "0" } }, [
-                        _vm._v("Выберите")
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.halls, function(item, index) {
-                        return _c(
-                          "option",
-                          { key: index, domProps: { value: item.id } },
-                          [_vm._v(_vm._s(item.name))]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-6" }, [
-              _c(
-                "form",
-                {
-                  staticClass: "form-inline ml-4",
-                  attrs: { method: "GET" },
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.loadEntries($event)
                     }
-                  }
-                },
-                [
-                  _c("div", { staticClass: "form-group" }, [
+                  },
+                  [
                     _c(
-                      "button",
+                      "label",
+                      { staticClass: "text mr-2", attrs: { for: "hall_id" } },
+                      [_vm._v("Зал:")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "select",
                       {
-                        staticClass: "btn btn-primary mr-2",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            _vm.show = !_vm.show
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.hall.id,
+                            expression: "hall.id"
                           }
+                        ],
+                        staticClass: "form-control form-control",
+                        attrs: { id: "hall_id" },
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.hall,
+                                "id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                            _vm.loadEntries
+                          ]
                         }
                       },
                       [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(
-                              _vm.show ? "Скрыть фильтр" : "Показать фильтр"
-                            ) +
-                            "\n                        "
-                        )
-                      ]
+                        _c("option", { attrs: { disabled: "", value: "0" } }, [
+                          _vm._v("Выберите")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.halls, function(item, index) {
+                          return _c(
+                            "option",
+                            { key: index, domProps: { value: item.id } },
+                            [_vm._v(_vm._s(item.name))]
+                          )
+                        })
+                      ],
+                      2
                     )
-                  ]),
-                  _vm._v(" "),
-                  _vm.show
-                    ? _c("div", [
-                        _c(
-                          "div",
-                          { staticClass: "form-group" },
-                          [
-                            _c("div", { staticClass: "text mr-2" }, [
-                              _vm._v(
-                                "\n                                Номер дорожки:\n                            "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _vm._l(_vm.hall.lanes, function(lane, index) {
-                              return _c(
-                                "div",
-                                {
-                                  key: index,
-                                  staticClass: "form-check-inline"
-                                },
-                                [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.lanes,
-                                        expression: "lanes"
-                                      }
-                                    ],
-                                    staticClass: "form-check-input",
-                                    attrs: {
-                                      type: "checkbox",
-                                      id: "lane" + lane
-                                    },
-                                    domProps: {
-                                      value: lane,
-                                      checked: Array.isArray(_vm.lanes)
-                                        ? _vm._i(_vm.lanes, lane) > -1
-                                        : _vm.lanes
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        var $$a = _vm.lanes,
-                                          $$el = $event.target,
-                                          $$c = $$el.checked ? true : false
-                                        if (Array.isArray($$a)) {
-                                          var $$v = lane,
-                                            $$i = _vm._i($$a, $$v)
-                                          if ($$el.checked) {
-                                            $$i < 0 &&
-                                              (_vm.lanes = $$a.concat([$$v]))
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c(
+                  "form",
+                  {
+                    staticClass: "form-inline ml-4",
+                    attrs: { method: "GET" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.loadEntries($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary mr-2",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.show = !_vm.show
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\r\n                                " +
+                              _vm._s(
+                                _vm.show ? "Скрыть фильтр" : "Показать фильтр"
+                              ) +
+                              "\r\n                            "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm.show
+                      ? _c("div", [
+                          _c(
+                            "div",
+                            { staticClass: "form-group" },
+                            [
+                              _c("div", { staticClass: "text mr-2" }, [
+                                _vm._v(
+                                  "\r\n                                    Номер дорожки:\r\n                                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.hall.lanes, function(lane, index) {
+                                return _c(
+                                  "div",
+                                  {
+                                    key: index,
+                                    staticClass: "form-check-inline"
+                                  },
+                                  [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: _vm.lanes,
+                                          expression: "lanes"
+                                        }
+                                      ],
+                                      staticClass: "form-check-input",
+                                      attrs: {
+                                        type: "checkbox",
+                                        id: "lane" + lane
+                                      },
+                                      domProps: {
+                                        value: lane,
+                                        checked: Array.isArray(_vm.lanes)
+                                          ? _vm._i(_vm.lanes, lane) > -1
+                                          : _vm.lanes
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a = _vm.lanes,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = lane,
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                (_vm.lanes = $$a.concat([$$v]))
+                                            } else {
+                                              $$i > -1 &&
+                                                (_vm.lanes = $$a
+                                                  .slice(0, $$i)
+                                                  .concat($$a.slice($$i + 1)))
+                                            }
                                           } else {
-                                            $$i > -1 &&
-                                              (_vm.lanes = $$a
-                                                .slice(0, $$i)
-                                                .concat($$a.slice($$i + 1)))
+                                            _vm.lanes = $$c
                                           }
-                                        } else {
-                                          _vm.lanes = $$c
                                         }
                                       }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "label",
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "form-check-label text",
+                                        attrs: { for: "lane" + lane }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\r\n                                        " +
+                                            _vm._s(lane) +
+                                            "\r\n                                    "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mt-2" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "text mr-2",
+                                attrs: { for: "stime" }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n                                    С\r\n                                "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.stime,
+                                  expression: "stime"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { type: "time", id: "stime" },
+                              domProps: { value: _vm.stime },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.stime = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "text mx-2",
+                                attrs: { for: "stime" }
+                              },
+                              [_vm._v("по")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.etime,
+                                  expression: "etime"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { type: "time", id: "etime" },
+                              domProps: { value: _vm.etime },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.etime = $event.target.value
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mt-2" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "text mr-2",
+                                attrs: { for: "date" }
+                              },
+                              [_vm._v("Дата:")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.date,
+                                  expression: "date"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { type: "date", id: "date" },
+                              domProps: { value: _vm.date },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.date = $event.target.value
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mt-2" }, [
+                            _c("div", { staticClass: "text mr-2" }, [
+                              _vm._v("Мест:")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "text mr-2",
+                                attrs: { for: "splace" }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n                                    С\r\n                                "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.splace,
+                                  expression: "splace"
+                                }
+                              ],
+                              staticClass: "form-control col-sm-2",
+                              attrs: { type: "number", id: "splace" },
+                              domProps: { value: _vm.splace },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.splace = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "text mx-2",
+                                attrs: { for: "splace" }
+                              },
+                              [_vm._v("по")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.eplace,
+                                  expression: "eplace"
+                                }
+                              ],
+                              staticClass: "form-control col-sm-2",
+                              attrs: { type: "number", id: "eplace" },
+                              domProps: { value: _vm.eplace },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.eplace = $event.target.value
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group mt-2" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-success ml-2 mt-2",
+                                attrs: { type: "submit" }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n                                    Применить\r\n                                "
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-info ml-2 mt-2",
+                                on: { click: _vm.clear }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n                                    Сбросить\r\n                                "
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      : _vm._e()
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6 form-inline" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.uuid,
+                      expression: "uuid"
+                    }
+                  ],
+                  staticClass: "form-control mr-sm-2",
+                  attrs: {
+                    type: "text",
+                    placeholder: "Введите uuid",
+                    "aria-label": "Search"
+                  },
+                  domProps: { value: _vm.uuid },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.uuid = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-info my-2 my-sm-0",
+                    on: { click: _vm.loadEntries }
+                  },
+                  [
+                    _vm._v(
+                      "\r\n                        Найти\r\n                    "
+                    )
+                  ]
+                )
+              ])
+            ])
+          : _vm._e()
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container-fluid" }, [
+      _vm.user
+        ? _c("div", { staticClass: "row justify-content-center" }, [
+            _c(
+              "table",
+              {
+                staticClass:
+                  "table table-striped table-dark table-bordered mt-3 col-sm-9"
+              },
+              [
+                _c("thead", [
+                  !_vm.loading ? _c("tr", [_vm._m(0)]) : _vm._e(),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  [
+                    _vm._l(_vm.entries, function(entry, index) {
+                      return _c("tr", { key: index }, [
+                        _c(
+                          "td",
+                          {
+                            staticClass: "text-center",
+                            attrs: { scope: "row" }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "link",
+                                attrs: {
+                                  href:
+                                    "/storage/qrcodes/" + entry.uuid + ".pdf"
+                                }
+                              },
+                              [_vm._v(_vm._s(entry.uuid))]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass: "text-center",
+                            attrs: { scope: "row" }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            " +
+                                _vm._s(entry.user.username) +
+                                "\r\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass: "text-center",
+                            attrs: { scope: "row" }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            " +
+                                _vm._s(entry.couple.schedule.hall.name) +
+                                "\r\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass: "text-center",
+                            attrs: { scope: "row" }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            " +
+                                _vm._s(entry.lane) +
+                                "\r\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass: "text-center",
+                            attrs: { scope: "row" }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            " +
+                                _vm._s(entry.places) +
+                                "\r\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass: "text-center",
+                            attrs: { scope: "row" }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            " +
+                                _vm._s(entry.start) +
+                                " -\r\n                            " +
+                                _vm._s(entry.end) +
+                                "\r\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass: "text-center",
+                            attrs: { scope: "row" }
+                          },
+                          [
+                            _vm._v(
+                              "\r\n                            " +
+                                _vm._s(entry.date) +
+                                "\r\n                        "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          {
+                            staticClass: "text-center",
+                            attrs: { scope: "row" }
+                          },
+                          [
+                            entry.state === 0
+                              ? _c("span", [_vm._v("Забронировано")])
+                              : entry.state === 1
+                              ? _c("span", [_vm._v("Оплачено")])
+                              : entry.state === 2
+                              ? _c("span", [_vm._v("Посещено")])
+                              : _c("span", [_vm._v("Ошибка")])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "div",
+                            { staticClass: "row justify-content-center" },
+                            [
+                              _vm.canDelete(entry)
+                                ? _c(
+                                    "button",
                                     {
-                                      staticClass: "form-check-label text",
-                                      attrs: { for: "lane" + lane }
+                                      staticClass: "btn btn-danger m-1",
+                                      attrs: { type: "button" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.cancel(entry)
+                                        }
+                                      }
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                    " +
-                                          _vm._s(lane) +
-                                          "\n                                "
+                                        "\r\n                                    Отменить\r\n                                "
                                       )
                                     ]
                                   )
-                                ]
-                              )
-                            })
-                          ],
-                          2
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group mt-2" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "text mr-2",
-                              attrs: { for: "stime" }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                С\n                            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.stime,
-                                expression: "stime"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "time", id: "stime" },
-                            domProps: { value: _vm.stime },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.stime = $event.target.value
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "text mx-2",
-                              attrs: { for: "stime" }
-                            },
-                            [_vm._v("по")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.etime,
-                                expression: "etime"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "time", id: "etime" },
-                            domProps: { value: _vm.etime },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.etime = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group mt-2" }, [
-                          _c(
-                            "label",
-                            {
-                              staticClass: "text mr-2",
-                              attrs: { for: "date" }
-                            },
-                            [_vm._v("Дата:")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.date,
-                                expression: "date"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: { type: "date", id: "date" },
-                            domProps: { value: _vm.date },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.date = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group mt-2" }, [
-                          _c("div", { staticClass: "text mr-2" }, [
-                            _vm._v("Мест:")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "text mr-2",
-                              attrs: { for: "splace" }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                С\n                            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.splace,
-                                expression: "splace"
-                              }
-                            ],
-                            staticClass: "form-control col-sm-2",
-                            attrs: { type: "number", id: "splace" },
-                            domProps: { value: _vm.splace },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.splace = $event.target.value
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "text mx-2",
-                              attrs: { for: "splace" }
-                            },
-                            [_vm._v("по")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.eplace,
-                                expression: "eplace"
-                              }
-                            ],
-                            staticClass: "form-control col-sm-2",
-                            attrs: { type: "number", id: "eplace" },
-                            domProps: { value: _vm.eplace },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.eplace = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group mt-2" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-success ml-2 mt-2",
-                              attrs: { type: "submit" }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                Применить\n                            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-info ml-2 mt-2",
-                              on: { click: _vm.clear }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                Сбросить\n                            "
-                              )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.checkRole("seller")
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-success m-1",
+                                      attrs: { type: "submit" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.pay(entry)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\r\n                                    Продать\r\n                                "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.checkRole("controller")
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-success m-1",
+                                      attrs: { type: "submit" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.pass(entry)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\r\n                                    Пропустить\r\n                                "
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
                             ]
                           )
                         ])
                       ])
-                    : _vm._e()
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-6 form-inline" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.uuid,
-                    expression: "uuid"
-                  }
-                ],
-                staticClass: "form-control mr-sm-2",
-                attrs: {
-                  type: "text",
-                  placeholder: "Введите uuid",
-                  "aria-label": "Search"
-                },
-                domProps: { value: _vm.uuid },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.uuid = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-outline-info my-2 my-sm-0",
-                  on: { click: _vm.loadEntries }
-                },
-                [_vm._v("\n                    Найти\n                ")]
-              )
-            ])
+                    }),
+                    _vm._v(" "),
+                    _vm.entries.length === 0 ? _c("tr", [_vm._m(2)]) : _vm._e()
+                  ],
+                  2
+                )
+              ]
+            )
           ])
         : _vm._e()
-    ]),
-    _vm._v(" "),
-    _vm.user
-      ? _c("div", { staticClass: "row" }, [
-          _c(
-            "table",
-            {
-              staticClass: "table table-striped table-dark table-bordered mt-3"
-            },
-            [
-              _c("thead", [
-                !_vm.loading ? _c("tr", [_vm._m(0)]) : _vm._e(),
-                _vm._v(" "),
-                _vm._m(1)
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                [
-                  _vm._l(_vm.entries, function(entry, index) {
-                    return _c("tr", { key: index }, [
-                      _c(
-                        "td",
-                        { staticClass: "text-center", attrs: { scope: "row" } },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "link",
-                              attrs: {
-                                href: "/storage/qrcodes/" + entry.uuid + ".pdf"
-                              }
-                            },
-                            [_vm._v(_vm._s(entry.uuid))]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-center", attrs: { scope: "row" } },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(entry.user.username) +
-                              "\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-center", attrs: { scope: "row" } },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(entry.couple.schedule.hall.name) +
-                              "\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-center", attrs: { scope: "row" } },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(entry.lane) +
-                              "\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-center", attrs: { scope: "row" } },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(entry.places) +
-                              "\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-center", attrs: { scope: "row" } },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(entry.start) +
-                              " -\n                        " +
-                              _vm._s(entry.end) +
-                              "\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-center", attrs: { scope: "row" } },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(entry.date) +
-                              "\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        { staticClass: "text-center", attrs: { scope: "row" } },
-                        [
-                          entry.state === 0
-                            ? _c("span", [_vm._v("Забронировано")])
-                            : entry.state === 1
-                            ? _c("span", [_vm._v("Оплачено")])
-                            : entry.state === 2
-                            ? _c("span", [_vm._v("Посещается")])
-                            : _c("span", [_vm._v("Ошибка")])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "div",
-                          { staticClass: "row justify-content-center" },
-                          [
-                            _vm.canDelete(entry)
-                              ? _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-danger m-1",
-                                    attrs: { type: "button" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.cancel(entry)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Отменить\n                            "
-                                    )
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.checkRole("seller")
-                              ? _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-success m-1",
-                                    attrs: { type: "submit" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.pay(entry)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Продать\n                            "
-                                    )
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.checkRole("controller")
-                              ? _c(
-                                  "button",
-                                  {
-                                    staticClass: "btn btn-success m-1",
-                                    attrs: { type: "submit" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.pass(entry)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                Пропустить\n                            "
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]
-                        )
-                      ])
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _vm.entries.length === 0 ? _c("tr", [_vm._m(2)]) : _vm._e()
-                ],
-                2
-              )
-            ]
-          )
-        ])
-      : _vm._e()
+    ])
   ])
 }
 var staticRenderFns = [
@@ -45117,7 +45155,7 @@ var staticRenderFns = [
     return _c("td", { attrs: { colspan: "9" } }, [
       _c("h1", { staticClass: "text-center" }, [
         _vm._v(
-          "\n                            Загрузка...\n                        "
+          "\r\n                                Загрузка...\r\n                            "
         )
       ])
     ])
@@ -45153,7 +45191,7 @@ var staticRenderFns = [
     return _c("td", { attrs: { colspan: "9" } }, [
       _c("h1", { staticClass: "text-center" }, [
         _vm._v(
-          "\n                            Записей для обработки нет\n                        "
+          "\r\n                                Записей для обработки нет\r\n                            "
         )
       ])
     ])

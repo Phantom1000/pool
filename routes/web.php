@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntryController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\HallController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\CoupleController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\MaintenanceController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\Admin\MaintenanceEntryController;
-use App\Http\Controllers\Admin\HallController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ use App\Http\Controllers\Admin\HallController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
@@ -37,10 +39,9 @@ Route::middleware('auth')->group(function () {
         Route::delete('roles/{user}/{role}', [RoleController::class, 'destroy'])->name('roles.destroy');
     });
 
-    Route::middleware('verified')->group(function () {
-        Route::resource('profiles', ProfileController::class)->only(['show', 'edit']);
-        Route::get('profiles', [ProfileController::class, 'index'])->name('profiles.index');
-    });
+    Route::resource('profiles', ProfileController::class)->only(['show', 'edit'])->middleware(['verified']);
+    Route::get('password/{user}', [ProfileController::class, 'password'])->name('password.update');
+    Route::get('profiles', [ProfileController::class, 'index'])->name('profiles.index');
 
     Route::put('/entries/book', [EntryController::class, 'book'])->name('entries.book');
     Route::put('/entries/pay/{entry}', [StoreController::class, 'pay'])->name('entries.pay');

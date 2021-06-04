@@ -16,7 +16,7 @@
 
                     {{ __('Прежде чем продолжить, нам необходимо проверить Вашу электронную почту.') }}
                     {{ __('Мы отправим вам письмо с ссылкой для подтверждения') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                    <form class="d-inline" method="POST" action="{{ route('verification.send') }}">
                         @csrf
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('нажмите здесь для отправки') }}</button>.
                     </form>

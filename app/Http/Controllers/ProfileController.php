@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class ProfileController extends Controller
 {
+
     public function index()
     {
         Gate::authorize('access', 'admin');
@@ -27,6 +28,7 @@ class ProfileController extends Controller
 
     public function show(User $profile, Request $request)
     {
+        Gate::authorize('show', $profile);
         $params['user'] = $profile;
         $params['schedule'] = Schedule::where('active', true)->firstOrFail();
 
@@ -58,8 +60,15 @@ class ProfileController extends Controller
 
     public function edit(User $profile)
     {
+        Gate::authorize('update', $profile);
         return view('profiles.edit', [
             'user' => $profile
         ]);
+    }
+
+    public function password(User $user)
+    {
+        Gate::authorize('update', $user);
+        return view('profiles.change-password');
     }
 }

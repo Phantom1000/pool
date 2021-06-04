@@ -43,20 +43,12 @@ class FortifyServiceProvider extends ServiceProvider
             }
         });
 
-        /*Fortify::loginView(function () {
-            return view('auth.login');
-        });
-
-        Fortify::registerView(function () {
-            return view('auth.register');
-        });
-
         Fortify::requestPasswordResetLinkView(function () {
-            return view('auth.forgot-password');
+            return view('auth.passwords.email');
         });
 
         Fortify::resetPasswordView(function () {
-            return view('auth.reset-password');
+            return view('auth.passwords.reset');
         });
 
         Fortify::verifyEmailView(function () {
@@ -64,12 +56,8 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::confirmPasswordView(function () {
-            return view('auth.confirm');
+            return view('auth.passwords.confirm');
         });
-
-        Fortify::twoFactorChallengeView(function () {
-            return view('auth.two-factor-challenge');
-        });*/
 
         $this->app->singleton(
             \Laravel\Fortify\Contracts\LoginResponse::class,

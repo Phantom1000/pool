@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Редактирование данных') }}</div>
+                <div class="card-header">{{ __('Изменение пароля') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('user-password.update', $user) }}">
+                    <form method="POST" action="{{ route('user-password.update') }}">
                         @csrf
                         @method('PUT')
 

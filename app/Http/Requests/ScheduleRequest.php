@@ -29,7 +29,8 @@ class ScheduleRequest extends FormRequest
             'starttime' => 'required|date_format:"H:i"',
             'endtime' => 'required|date_format:"H:i"|after:starttime',
             'couples' => 'required|integer|min:1',
-            'hall_id' => 'required|integer|min:1'
+            'hall_id' => 'required|integer|min:1',
+            'active' => 'nullable'
         ];
     }
 

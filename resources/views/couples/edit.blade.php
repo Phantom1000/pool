@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-5 titles">
-            Редактирование пар
+            Редактирование временных интервалов
         </div>
     </div>
     <div class="row mt-3">

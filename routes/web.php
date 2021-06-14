@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::resource('profiles', ProfileController::class)->only(['show', 'edit'])->middleware(['verified']);
+    Route::get('/profile/entries', [ProfileController::class, 'getEntries'])->name('profile.entries');
     Route::get('password/{user}', [ProfileController::class, 'password'])->name('password.update');
     Route::get('profiles', [ProfileController::class, 'index'])->name('profiles.index');
 

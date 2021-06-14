@@ -64,13 +64,13 @@ class ScheduleController extends Controller
         Gate::authorize('access', 'admin');
 
         $active = $request->active === 'on';
-        $schedule = Schedule::create($request->only('startdate', 'enddate', 'starttime', 'endtime', 'hall_id') + ['active' => $active]);
-        $this->coupleService->addCouples($schedule, $request->starttime, $request->endtime, $request->couples);
         if ($active) {
             Schedule::where('hall_id', $request->hall_id)->update([
                 'active' => false
             ]);
         }
+        $schedule = Schedule::create($request->only('startdate', 'enddate', 'starttime', 'endtime', 'hall_id') + ['active' => $active]);
+        $this->coupleService->addCouples($schedule, $request->starttime, $request->endtime, $request->couples);
         return redirect()->route('schedules.index');
     }
 
@@ -126,7 +126,7 @@ class ScheduleController extends Controller
      * @param  \App\Models\Schedule  $schedule
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Schedule $schedule)
+    public function update(ScheduleRequest $request, Schedule $schedule)
     {
         Gate::authorize('access', 'admin');
 

@@ -2338,8 +2338,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["user", "csrf_token", "roles"],
+  props: ["user", "csrf_token", "roles", "is_profile"],
   data: function data() {
     return {
       hall: Object,
@@ -2413,27 +2427,52 @@ __webpack_require__.r(__webpack_exports__);
 
       var flag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       this.loading = flag;
-      axios.get("/entries/my", {
-        params: {
-          lanes: this.lanes,
-          stime: this.stime,
-          etime: this.etime,
-          date: this.date,
-          splace: this.splace,
-          eplace: this.eplace,
-          hall_id: this.hall.id,
-          uuid: this.uuid
-        }
-      }).then(function (response) {
-        _this5.loading = true;
-        _this5.halls = response.data.halls;
-        _this5.hall = response.data.hall ? response.data.hall : {
-          id: 0,
-          lanes: 0
-        };
-        _this5.entries = response.data.entries;
-        _this5.title = response.data.title;
-      });
+
+      if (this.is_profile) {
+        axios.get("/profile/entries", {
+          params: {
+            lanes: this.lanes,
+            stime: this.stime,
+            etime: this.etime,
+            date: this.date,
+            splace: this.splace,
+            eplace: this.eplace,
+            hall_id: this.hall.id,
+            uuid: this.uuid
+          }
+        }).then(function (response) {
+          _this5.loading = true;
+          _this5.halls = response.data.halls;
+          _this5.hall = response.data.hall ? response.data.hall : {
+            id: 0,
+            lanes: 0
+          };
+          _this5.entries = response.data.entries;
+          _this5.title = "";
+        });
+      } else {
+        axios.get("/entries/my", {
+          params: {
+            lanes: this.lanes,
+            stime: this.stime,
+            etime: this.etime,
+            date: this.date,
+            splace: this.splace,
+            eplace: this.eplace,
+            hall_id: this.hall.id,
+            uuid: this.uuid
+          }
+        }).then(function (response) {
+          _this5.loading = true;
+          _this5.halls = response.data.halls;
+          _this5.hall = response.data.hall ? response.data.hall : {
+            id: 0,
+            lanes: 0
+          };
+          _this5.entries = response.data.entries;
+          _this5.title = response.data.title;
+        });
+      }
     },
     clear: function clear() {
       this.lanes = [];
@@ -44569,11 +44608,11 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\r\n                                " +
+                            "\n                                " +
                               _vm._s(
                                 _vm.show ? "Скрыть фильтр" : "Показать фильтр"
                               ) +
-                              "\r\n                            "
+                              "\n                            "
                           )
                         ]
                       )
@@ -44587,7 +44626,7 @@ var render = function() {
                             [
                               _c("div", { staticClass: "text mr-2" }, [
                                 _vm._v(
-                                  "\r\n                                    Номер дорожки:\r\n                                "
+                                  "\n                                    Номер дорожки:\n                                "
                                 )
                               ]),
                               _vm._v(" "),
@@ -44651,9 +44690,9 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\r\n                                        " +
+                                          "\n                                        " +
                                             _vm._s(lane) +
-                                            "\r\n                                    "
+                                            "\n                                    "
                                         )
                                       ]
                                     )
@@ -44673,7 +44712,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\r\n                                    С\r\n                                "
+                                  "\n                                    С\n                                "
                                 )
                               ]
                             ),
@@ -44778,7 +44817,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\r\n                                    С\r\n                                "
+                                  "\n                                    С\n                                "
                                 )
                               ]
                             ),
@@ -44846,7 +44885,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\r\n                                    Применить\r\n                                "
+                                  "\n                                    Применить\n                                "
                                 )
                               ]
                             ),
@@ -44859,7 +44898,7 @@ var render = function() {
                               },
                               [
                                 _vm._v(
-                                  "\r\n                                    Сбросить\r\n                                "
+                                  "\n                                    Сбросить\n                                "
                                 )
                               ]
                             )
@@ -44905,7 +44944,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\r\n                        Найти\r\n                    "
+                      "\n                        Найти\n                    "
                     )
                   ]
                 )
@@ -44965,9 +45004,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\r\n                            " +
+                              "\n                            " +
                                 _vm._s(entry.user.username) +
-                                "\r\n                        "
+                                "\n                        "
                             )
                           ]
                         ),
@@ -44980,9 +45019,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\r\n                            " +
+                              "\n                            " +
                                 _vm._s(entry.couple.schedule.hall.name) +
-                                "\r\n                        "
+                                "\n                        "
                             )
                           ]
                         ),
@@ -44995,9 +45034,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\r\n                            " +
+                              "\n                            " +
                                 _vm._s(entry.lane) +
-                                "\r\n                        "
+                                "\n                        "
                             )
                           ]
                         ),
@@ -45010,9 +45049,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\r\n                            " +
+                              "\n                            " +
                                 _vm._s(entry.places) +
-                                "\r\n                        "
+                                "\n                        "
                             )
                           ]
                         ),
@@ -45025,11 +45064,11 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\r\n                            " +
+                              "\n                            " +
                                 _vm._s(entry.start) +
-                                " -\r\n                            " +
+                                " -\n                            " +
                                 _vm._s(entry.end) +
-                                "\r\n                        "
+                                "\n                        "
                             )
                           ]
                         ),
@@ -45042,9 +45081,9 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\r\n                            " +
+                              "\n                            " +
                                 _vm._s(entry.date) +
-                                "\r\n                        "
+                                "\n                        "
                             )
                           ]
                         ),
@@ -45085,7 +45124,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                    Отменить\r\n                                "
+                                        "\n                                    Отменить\n                                "
                                       )
                                     ]
                                   )
@@ -45105,7 +45144,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                    Продать\r\n                                "
+                                        "\n                                    Продать\n                                "
                                       )
                                     ]
                                   )
@@ -45125,7 +45164,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\r\n                                    Пропустить\r\n                                "
+                                        "\n                                    Пропустить\n                                "
                                       )
                                     ]
                                   )
@@ -45155,7 +45194,7 @@ var staticRenderFns = [
     return _c("td", { attrs: { colspan: "9" } }, [
       _c("h1", { staticClass: "text-center" }, [
         _vm._v(
-          "\r\n                                Загрузка...\r\n                            "
+          "\n                                Загрузка...\n                            "
         )
       ])
     ])
@@ -45191,7 +45230,7 @@ var staticRenderFns = [
     return _c("td", { attrs: { colspan: "9" } }, [
       _c("h1", { staticClass: "text-center" }, [
         _vm._v(
-          "\r\n                                Записей для обработки нет\r\n                            "
+          "\n                                Записей для обработки нет\n                            "
         )
       ])
     ])

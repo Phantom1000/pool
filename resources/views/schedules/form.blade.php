@@ -36,7 +36,7 @@
 </div>
 
 <div class="form-inline mb-3">
-    Количество пар: <input type="number"
+    Количество временных интервалов: <input type="number"
         class="form-control form-control-sm mx-2 mr-sm-2 @error('couples') is-invalid @enderror" id="couples"
         value="{{ old('couples', (isset($schedule) ? $schedule->couples->count() : '1')) }}" name="couples" required min="1">
     @error('couples')
